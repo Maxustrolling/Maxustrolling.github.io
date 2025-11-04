@@ -10,49 +10,63 @@ burger.addEventListener('click', () => {
   burger.setAttribute('aria-expanded', open ? 'true' : 'false');
 });
 
-// Gestión de enlace activo (persistente): al hacer clic se guarda en localStorage
-(() => {
-  // Sólo seleccionar los enlaces del menú del header. No tocar los enlaces del footer.
+// Gestión robusta de enlace activo: siempre determinamos el enlace activo a partir
+// de la URL actual (ruta + hash). Escuchamos cambios de navegación para mantener
+// el estado sincronizado sin depender únicamente de localStorage.
+{
   const menuLinks = document.querySelectorAll('.menu a');
-  if (!menuLinks.length) return;
+  if (menuLinks.length) {
+    const clearActive = () => menuLinks.forEach(l => l.classList.remove('active'));
 
-  // Al hacer click en un enlace del menú, marcarlo y guardar la referencia
-  menuLinks.forEach(a => {
-    a.addEventListener('click', (ev) => {
-      try {
-        const href = a.getAttribute('href');
-        localStorage.setItem('citrumax.activeMenu', href);
-        menuLinks.forEach(x => x.classList.remove('active'));
-        a.classList.add('active');
-      } catch (e) {
-        // no crítico
-      }
-    });
-  });
+    function applyActiveFromLocation() {
+      clearActive();
+      const currentPath = (location.pathname.split('/').pop() || 'index.html');
+      const currentHash = location.hash || '';
 
-  // Al cargar la página, aplicar la selección guardada (si existe)
-  try {
-    const saved = localStorage.getItem('citrumax.activeMenu');
-    if (saved) {
       menuLinks.forEach(a => {
-        if (a.getAttribute('href') === saved) a.classList.add('active');
-      });
-    } else {
-      // Si no hay guardado, intentar inferir por la ruta actual
-      const path = location.pathname.split('/').pop() || 'index.html';
-      menuLinks.forEach(a => {
-        const h = a.getAttribute('href');
-        if (!h) return;
-        // coincidencia por nombre de archivo o hash
-        if (h === path || h === location.pathname || h === ('#' + location.hash.replace('#',''))) {
-          a.classList.add('active');
+        const hrefAttr = a.getAttribute('href') || '';
+        try {
+          const linkUrl = new URL(a.href, location.href);
+          const linkPath = (linkUrl.pathname.split('/').pop() || 'index.html');
+          const linkHash = linkUrl.hash || '';
+
+          // Coincidencia primaria: mismo archivo (index.html, about.html, contact.html)
+          if (linkPath === currentPath) { a.classList.add('active'); return; }
+
+          // Coincidencia por hash (anclas dentro de la página)
+          if (linkHash && linkHash === currentHash) { a.classList.add('active'); return; }
+
+          // Si el href es sólo un hash y coincide con el hash actual
+          if (hrefAttr.startsWith('#') && hrefAttr === currentHash) { a.classList.add('active'); return; }
+
+          // Fallbacks: comparar pathname completo o que el href termine igual que la ruta actual
+          if (linkUrl.pathname === location.pathname) { a.classList.add('active'); return; }
+          if (a.getAttribute('href') === currentPath || a.getAttribute('href') === ('#' + currentHash.replace('#',''))) { a.classList.add('active'); return; }
+        } catch (e) {
+          // En caso de URL inválida, comparar de forma simple
+          if (hrefAttr === currentHash || hrefAttr === currentPath) a.classList.add('active');
         }
       });
     }
-  } catch (e) {
-    // no crítico
+
+    // Actualizar estado al hacer click (útil para anclas sin recarga)
+    menuLinks.forEach(a => {
+      a.addEventListener('click', () => {
+        try { localStorage.setItem('citrumax.activeMenu', a.getAttribute('href')); } catch (e) { /* ignore */ }
+        // aplicar inmediatamente para enlaces en la misma página
+        menuLinks.forEach(x => x.classList.remove('active'));
+        a.classList.add('active');
+      });
+    });
+
+    // Escuchar cambios de navegación y hash para mantener la selección sincronizada
+    window.addEventListener('hashchange', applyActiveFromLocation);
+    window.addEventListener('popstate', applyActiveFromLocation);
+
+    // Ejecutar ahora para aplicar el estado al cargar el script
+    applyActiveFromLocation();
   }
-})();
+}
 
 // Animaciones al hacer scroll
 const io = new IntersectionObserver((entries) => {
