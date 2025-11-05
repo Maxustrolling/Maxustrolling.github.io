@@ -142,8 +142,9 @@
     .card { background: var(--card); border: 1px solid #e3e9df; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow); transition: transform .25s ease; }
     .card:hover { transform: translateY(-4px); }
     .card img { width: 100%; height: 260px; object-fit: cover; }
+  .card .card-media-link { display: block; }
     .card .card-body { padding: 1rem 1.1rem 1.25rem; display: grid; gap: .4rem; }
-    .tag { display: inline-block; font-weight: 800; letter-spacing: .02em; color: var(--green-dark); }
+    .tag { display: inline-block; font-weight: 800; letter-spacing: .02em; }
 
     /* Sustentabilidad */
     .sustentabilidad { display: grid; grid-template-columns: 1.1fr .9fr; gap: 2rem; align-items: center; }
@@ -174,6 +175,14 @@
       .medio-image.card img { min-height: 220px; }
     }
 
+      /* En móviles, dar más separación entre los items de la tarjeta de contacto
+         (email, teléfono, WhatsApp, dirección) para mejorar legibilidad y toque */
+      .contact-card {
+        gap: 1rem !important;
+        padding: 1.25rem !important;
+      }
+      .contact-card > div { margin-bottom: .6rem !important; }
+      .contact-card .contact-value { margin-top: .6rem !important; }
     /* Donde encontrarnos */
     .logo-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; align-items: center; }
     .ally { background: #fff; border: 1px dashed #dbe5d4; border-radius: var(--radius-lg); padding: .8rem; display: grid; place-items: center; height: 84px; transition: filter .2s, opacity .2s; }
@@ -222,21 +231,30 @@
     @media (max-width: 980px) {
       .about-minimal .about-tiles { grid-template-columns: repeat(2, 1fr); }
       .about-tile { min-height: 220px; }
-      /* Más separación entre elementos de contacto en pantallas pequeñas */
-      .contact-card { gap: 1.5rem; }
     }
     @media (max-width: 640px) {
       .about-minimal .about-tiles { grid-template-columns: 1fr; }
       .about-tile { min-height: 260px; }
     }
-      .card img { height: 220px; }
-      /* Aumentar un poco más el gap en móviles muy pequeños */
-      .contact-card { gap: 1.5rem; }
+
   /* Galería simple para About Us */
   .about-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; margin-top: 1rem; }
   .about-gallery img { width: 100%; height: 160px; object-fit: cover; border-radius: .8rem; border: 1px solid #e6eae3; box-shadow: var(--shadow); }
   @media (max-width: 980px) { .about-gallery { grid-template-columns: repeat(2, 1fr); } .about-gallery img { height: 140px; } }
   @media (max-width: 640px) { .about-gallery { grid-template-columns: 1fr; } .about-gallery img { height: 200px; } }
+
+    /* Salud: mostrar tres imágenes por fila */
+    .salud-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    @media (max-width: 980px) { .salud-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .salud-grid { grid-template-columns: 1fr; } }
+    /* Sombra en las imágenes de Salud (inset para que no quede recortada por overflow) */
+    .salud-grid .medio-image.card img {
+      box-shadow: inset 0 10px 28px rgba(0,0,0,0.08);
+      transition: box-shadow .2s ease;
+    }
+    .salud-grid .medio-image.card:hover img {
+      box-shadow: inset 0 8px 22px rgba(0,0,0,0.10);
+    }
 
     /* Contacto */
     .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -274,6 +292,12 @@
        con overflow:hidden y border-radius para que el borde dashed coincida con
        el borde redondeado de la imagen. */
   .ally-strip { justify-items: start; align-items: center; }
+
+  /* Lightbox */
+  .lightbox { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; padding: 1.5rem; background: rgba(0,0,0,0.6); backdrop-filter: blur(2px); z-index: 1000; }
+  .lightbox.open { display: flex; }
+  .lightbox__image { max-width: min(1000px, 92vw); max-height: 90vh; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,.35); background: #fff; }
+  body.no-scroll { overflow: hidden; }
 
     /* Footer: marco delineado que se ajusta a la relación de aspecto de la imagen.
        En lugar de forzar una altura fija, el contenedor 'shrink-wrap' a la imagen
