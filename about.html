@@ -1,166 +1,261 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CL">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Citrumax — Cítricos de alta calidad con producción sustentable</title>
-  <meta name="description" content="Citrumax es un packing dedicado a la producción y comercialización mayorista de naranjas, limones y pomelos, con procesos sustentables impulsados por energía solar. Presencia en supermercados como Líder y Unimarc." />
-  <meta name="keywords" content="packing cítricos, proveedor de naranjas, limones mayoristas, pomelos, producción sustentable Chile, B2B alimentos, agroindustrial" />
-  <meta name="robots" content="index,follow" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosotros — Acqua Capital</title>
+  <meta name="description" content="Tres socios chilenos con larga trayectoria en factoring y financiamiento de Pymes. Conoce el equipo detrás de Acqua Capital." />
+  <link rel="icon" type="image/png" href="logos/favicon.png" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Citrumax — Cítricos de alta calidad con producción sustentable" />
-  <meta property="og:description" content="Mayorista de naranjas, limones y pomelos con energía solar. Presencia en principales supermercados." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/og-citrumax.jpg" />
-  <meta property="og:url" content="https://www.citrumax.com" />
-
-  <!-- Favicon (placeholders) -->
-  <link rel="icon" href="img/c.ico" />
-  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
-
-
-
-  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        fontFamily: { sans: ['Inter','ui-sans-serif','system-ui','sans-serif'] },
+        colors: {
+          aqua: '#2ba6e0', blue: { DEFAULT: '#1f6fb2' },
+          navy: { DEFAULT: '#123a5e', deep: '#0d2c47' },
+          inkc: '#1e1e2d', mist: '#f6f8fb', cloud: '#e9eef4',
+        },
+        borderRadius: { '4xl': '2rem' },
+      }},
+    };
+  </script>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <!-- Header -->
-  <header aria-label="Barra de navegación">
-    <div class="container nav">
-      <a href="index.html" class="brand" aria-label="Ir al inicio">
-        <span>Citrumax</span>
+
+<body class="font-sans text-inkc bg-white antialiased">
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 backdrop-blur-md border-b border-cloud/70">
+    <nav class="max-w-7xl mx-auto px-5 sm:px-8 h-16 md:h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center" aria-label="Acqua Capital — Inicio">
+        <img src="logos/logo.png" alt="Acqua Capital" class="h-11 md:h-14 w-auto" />
       </a>
-      <nav>
-        <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
-        <div class="menu" id="menu">
-          <a href="index.html">Inicio</a>
-          <a href="about.html">Sobre Nosotros</a>
-          <a href="salud.html">Salud</a>
-          <a href="contact.html">Contáctanos</a>
-        </div>
-      </nav>
+      <div class="hidden md:flex items-center gap-9 text-[15px] font-medium text-inkc/80">
+        <a href="index.html" class="nav-link hover:text-navy transition-colors">Inicio</a>
+        <a href="about.html" class="nav-link hover:text-navy transition-colors">Nosotros</a>
+        <a href="contact.html" class="nav-link hover:text-navy transition-colors">Contacto</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="https://app.acqua.capital/login" class="liquid-glass liquid-glass--sm" aria-label="Iniciar sesión">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+          Iniciar Sesión
+        </a>
+        <button id="menuBtn" class="md:hidden p-2 text-navy" aria-label="Abrir menú">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </nav>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-cloud bg-white">
+      <div class="px-6 py-4 flex flex-col gap-1 text-[15px] font-medium">
+        <a href="index.html" class="py-2.5 text-inkc/80 hover:text-navy">Inicio</a>
+        <a href="about.html" class="py-2.5 text-inkc/80 hover:text-navy">Nosotros</a>
+        <a href="contact.html" class="py-2.5 text-inkc/80 hover:text-navy">Contacto</a>
+      </div>
     </div>
   </header>
 
-    <!-- Hero/banner con foto de fondo -->
-  <main id="inicio" class="hero">
-    <div class="hero-media">
-      <!-- Reemplaza la imagen de portada por una IA/foto de campos de cítricos o packing -->
-      <img class="hero-img" src="img/cerro.jpg" alt="Campos de cítricos y planta de packing" />
-    </div>
-    <div class="container">
-      <span class="kicker reveal">Mallarauco • Chile</span>
-      <h1 class="reveal">Sobre Nosotros</h1>
-      <p class="reveal">Calidad, trazabilidad y sustentabilidad. Conoce quiénes somos, el equipo y nuestras instalaciones.</p>
-    </div>
+  <main>
+    <!-- ===================== ENCABEZADO ===================== -->
+    <section class="liquid-bg pt-28 md:pt-36 pb-14 md:pb-16">
+      <div class="max-w-4xl mx-auto px-5 sm:px-8 text-center reveal">
+        <span class="text-sm font-bold uppercase tracking-wider text-blue">Quiénes somos</span>
+        <h1 class="mt-3 text-4xl sm:text-5xl font-extrabold tracking-tight text-navy leading-[1.1]">
+          Tres socios chilenos que conocen el factoring por dentro
+        </h1>
+        <p class="mt-6 text-lg text-inkc/70 leading-relaxed">
+          Acqua Capital nace de la experiencia de tres profesionales con larga trayectoria en el
+          financiamiento de Pymes en Chile. Vivimos en carne propia lo lento y opaco que solía ser
+          el factoring tradicional, y decidimos construir algo distinto.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== LOS 3 SOCIOS (primero) ===================== -->
+    <section class="py-14 md:py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+
+          <!-- TODO: reemplazar foto, bio, credenciales y LinkedIn con datos reales -->
+          <article class="reveal flex flex-col bg-white rounded-4xl border border-cloud p-6 hover:shadow-[0_24px_50px_-24px_rgba(18,58,94,0.30)] transition-shadow">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=720&fit=crop&crop=faces&q=80" alt="Rodrigo Martínez" loading="lazy" class="w-full aspect-[4/5] object-cover rounded-2xl shadow-sm" />
+            <div class="mt-5 flex items-start justify-between gap-3">
+              <div>
+                <h3 class="text-xl font-bold text-navy">Rodrigo Martínez</h3>
+                <p class="text-sm text-blue font-semibold">Socio · Director Ejecutivo</p>
+              </div>
+              <a href="#" aria-label="LinkedIn de Rodrigo Martínez" class="shrink-0 w-9 h-9 rounded-lg bg-mist border border-cloud flex items-center justify-center text-navy hover:bg-blue hover:text-white transition-colors">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.2 8h4.6v15H.2V8zm7.5 0h4.41v2.05h.06c.61-1.16 2.1-2.38 4.32-2.38 4.62 0 5.47 3.04 5.47 7v8.33h-4.6v-7.39c0-1.76-.03-4.02-2.45-4.02-2.45 0-2.83 1.92-2.83 3.9V23H7.7V8z"/></svg>
+              </a>
+            </div>
+            <span class="mt-3 inline-flex items-center gap-1.5 self-start text-xs font-bold text-navy bg-aqua/10 px-3 py-1 rounded-full">+18 años en la industria</span>
+            <p class="mt-3 text-sm text-inkc/65 leading-relaxed">Ex gerente comercial de banca corporativa, donde lideró carteras de financiamiento a empresas. Hoy dirige la estrategia y la relación cercana con cada Pyme.</p>
+            <ul class="mt-4 space-y-2 text-sm text-inkc/70 border-t border-cloud pt-4">
+              <li class="flex items-start gap-2"><span class="mt-0.5 text-blue"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Ingeniero Comercial · MBA</li>
+              <li class="flex items-start gap-2"><span class="mt-0.5 text-blue"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Estructuró miles de operaciones de financiamiento</li>
+              <li class="flex items-start gap-2"><span class="mt-0.5 text-blue"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Especialista en financiamiento Pyme</li>
+            </ul>
+          </article>
+
+          <!-- TODO: reemplazar foto, bio, credenciales y LinkedIn con datos reales -->
+          <article class="reveal flex flex-col bg-white rounded-4xl border border-cloud p-6 hover:shadow-[0_24px_50px_-24px_rgba(18,58,94,0.30)] transition-shadow">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=720&fit=crop&crop=faces&q=80" alt="Carolina Fuentes" loading="lazy" class="w-full aspect-[4/5] object-cover rounded-2xl shadow-sm" />
+            <div class="mt-5 flex items-start justify-between gap-3">
+              <div>
+                <h3 class="text-xl font-bold text-navy">Carolina Fuentes</h3>
+                <p class="text-sm text-blue font-semibold">Socia · Riesgo y Operaciones</p>
+              </div>
+              <a href="#" aria-label="LinkedIn de Carolina Fuentes" class="shrink-0 w-9 h-9 rounded-lg bg-mist border border-cloud flex items-center justify-center text-navy hover:bg-blue hover:text-white transition-colors">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.2 8h4.6v15H.2V8zm7.5 0h4.41v2.05h.06c.61-1.16 2.1-2.38 4.32-2.38 4.62 0 5.47 3.04 5.47 7v8.33h-4.6v-7.39c0-1.76-.03-4.02-2.45-4.02-2.45 0-2.83 1.92-2.83 3.9V23H7.7V8z"/></svg>
+              </a>
+            </div>
+            <span class="mt-3 inline-flex items-center gap-1.5 self-start text-xs font-bold text-navy bg-aqua/10 px-3 py-1 rounded-full">+15 años en la industria</span>
+            <p class="mt-3 text-sm text-inkc/65 leading-relaxed">Especialista en riesgo crediticio y operaciones. Diseñó modelos de evaluación en grandes instituciones financieras y vela por operaciones justas, seguras y bien estructuradas.</p>
+            <ul class="mt-4 space-y-2 text-sm text-inkc/70 border-t border-cloud pt-4">
+              <li class="flex items-start gap-2"><span class="mt-0.5 text-blue"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Ingeniera Civil Industrial</li>
+              <li class="flex items-start gap-2"><span class="mt-0.5 text-blue"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Experta en modelos de evaluación de riesgo</li>
+              <li class="flex items-start gap-2"><span class="mt-0.5 text-blue"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Lideró áreas de cobranza y operaciones</li>
+            </ul>
+          </article>
+
+          <!-- TODO: reemplazar foto, bio, credenciales y LinkedIn con datos reales -->
+          <article class="reveal flex flex-col bg-white rounded-4xl border border-cloud p-6 hover:shadow-[0_24px_50px_-24px_rgba(18,58,94,0.30)] transition-shadow">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=720&fit=crop&crop=faces&q=80" alt="Andrés Tapia" loading="lazy" class="w-full aspect-[4/5] object-cover rounded-2xl shadow-sm" />
+            <div class="mt-5 flex items-start justify-between gap-3">
+              <div>
+                <h3 class="text-xl font-bold text-navy">Andrés Tapia</h3>
+                <p class="text-sm text-blue font-semibold">Socio · Tecnología</p>
+              </div>
+              <a href="#" aria-label="LinkedIn de Andrés Tapia" class="shrink-0 w-9 h-9 rounded-lg bg-mist border border-cloud flex items-center justify-center text-navy hover:bg-blue hover:text-white transition-colors">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.2 8h4.6v15H.2V8zm7.5 0h4.41v2.05h.06c.61-1.16 2.1-2.38 4.32-2.38 4.62 0 5.47 3.04 5.47 7v8.33h-4.6v-7.39c0-1.76-.03-4.02-2.45-4.02-2.45 0-2.83 1.92-2.83 3.9V23H7.7V8z"/></svg>
+              </a>
+            </div>
+            <span class="mt-3 inline-flex items-center gap-1.5 self-start text-xs font-bold text-navy bg-aqua/10 px-3 py-1 rounded-full">+12 años en fintech</span>
+            <p class="mt-3 text-sm text-inkc/65 leading-relaxed">Líder técnico con experiencia construyendo plataformas de financiamiento digital. Es el arquitecto del proceso 100% online que hace que ceder una factura tome minutos.</p>
+            <ul class="mt-4 space-y-2 text-sm text-inkc/70 border-t border-cloud pt-4">
+              <li class="flex items-start gap-2"><span class="mt-0.5 text-blue"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Ingeniero en Informática</li>
+              <li class="flex items-start gap-2"><span class="mt-0.5 text-blue"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Integraciones con SII y factura electrónica</li>
+              <li class="flex items-start gap-2"><span class="mt-0.5 text-blue"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Seguridad y cifrado de datos</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EL EQUIPO ===================== -->
+    <section class="py-16 md:py-20 bg-mist border-y border-cloud">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        <div class="max-w-2xl mx-auto text-center reveal">
+          <span class="text-sm font-bold uppercase tracking-wider text-blue">El equipo</span>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-navy">Detrás de cada operación, personas</h2>
+          <p class="mt-4 text-lg text-inkc/65">Más allá de los socios, somos un equipo cercano de ejecutivos y especialistas que acompaña a cada Pyme con atención humana y respuestas rápidas.</p>
+        </div>
+        <div class="mt-10 reveal">
+          <!-- TODO: reemplazar por imagen propia del equipo/oficina -->
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&h=600&fit=crop&q=80"
+               alt="Equipo de Acqua Capital trabajando" loading="lazy"
+               class="w-full h-60 md:h-80 object-cover rounded-4xl border border-cloud shadow-lg" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HISTORIA + VALORES ===================== -->
+    <section class="py-16 md:py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-12 items-center">
+        <div class="reveal">
+          <h2 class="text-3xl font-extrabold tracking-tight text-navy">Nuestro propósito</h2>
+          <p class="mt-5 text-lg text-inkc/70 leading-relaxed">
+            Unimos el conocimiento profundo del rubro con tecnología de primer nivel para entregar un servicio
+            <strong class="text-navy font-semibold">ágil, transparente y completamente digital</strong>.
+            Creemos que el acceso a liquidez no debería ser un privilegio, sino una herramienta clara
+            y justa para que cada Pyme siga creciendo.
+          </p>
+          <div class="mt-8 grid grid-cols-2 gap-5 max-w-md">
+            <div class="flex items-start gap-3"><span class="mt-1 text-navy"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><p class="text-inkc/75"><strong class="text-navy">+20 años</strong> combinados en banca y factoring</p></div>
+            <div class="flex items-start gap-3"><span class="mt-1 text-navy"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><p class="text-inkc/75"><strong class="text-navy">Capital chileno</strong>, decisiones locales y cercanas</p></div>
+            <div class="flex items-start gap-3"><span class="mt-1 text-navy"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><p class="text-inkc/75"><strong class="text-navy">Foco en Pymes</strong> reales, no en grandes corporaciones</p></div>
+            <div class="flex items-start gap-3"><span class="mt-1 text-navy"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><p class="text-inkc/75"><strong class="text-navy">Atención humana</strong> cuando la necesitas</p></div>
+          </div>
+        </div>
+        <div class="reveal grid sm:grid-cols-3 gap-4">
+          <div class="bg-mist rounded-3xl border border-cloud p-6">
+            <p class="text-3xl font-extrabold text-navy">+20<span class="text-xl align-top">años</span></p>
+            <p class="text-sm text-inkc/60 mt-1">De experiencia combinada del equipo</p>
+          </div>
+          <div class="bg-mist rounded-3xl border border-cloud p-6 sm:mt-6">
+            <p class="text-3xl font-extrabold text-navy">100%</p>
+            <p class="text-sm text-inkc/60 mt-1">Operaciones digitales, sin papeleo</p>
+          </div>
+          <div class="bg-mist rounded-3xl border border-cloud p-6">
+            <p class="text-3xl font-extrabold text-navy">24h</p>
+            <p class="text-sm text-inkc/60 mt-1">Objetivo de abono para tu liquidez</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CITA / COMPROMISO ===================== -->
+    <section class="py-16 md:py-24 bg-white">
+      <div class="max-w-5xl mx-auto px-5 sm:px-8">
+        <div class="reveal rounded-4xl bg-gradient-to-br from-blue via-navy to-navy-deep text-white p-10 md:p-14 text-center relative overflow-hidden">
+          <div class="absolute -top-10 -right-10 w-48 h-48 rounded-full bg-aqua/20 blur-2xl"></div>
+          <div class="absolute -bottom-12 -left-12 w-56 h-56 rounded-full bg-aqua/10 blur-3xl"></div>
+          <p class="relative text-xl md:text-2xl font-medium leading-relaxed max-w-3xl mx-auto">
+            “Nuestro compromiso es simple: que cada Pyme acceda a su dinero rápido, con reglas claras
+            y sin letra chica. La transparencia no es un eslogan, es la forma en que trabajamos.”
+          </p>
+          <p class="relative mt-6 text-white/60 font-semibold">— Los socios fundadores de Acqua Capital</p>
+          <div class="relative mt-8"><a href="contact.html" class="liquid-glass liquid-glass--dark text-base">Conversemos</a></div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- Sobre nosotros -->
-  <section id="nosotros" class="container about-minimal reveal">
-    <div class="section-head">
-      <h2>Citrumax</h2>
-      <p>Somos un packing mayorista de cítricos. Proveemos fruta de alta calidad a cadenas y distribuidores, combinando selección rigurosa, control de trazabilidad y procesos de packing orientados al mercado B2B.</p>
-      <p>Operamos con un enfoque sustentable. Nuestro equipo técnico y logístico garantiza continuidad operacional, almacenamiento en frío y cumplimiento de estándares sanitarios y comerciales.</p>
-    </div>
-
-    <div class="about-tiles">
-      <article class="about-tile reveal">
-        <div class="tile-media">
-          <img src="img/camioneta.jpg" alt="Campos de cítricos" />
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="bg-navy-deep text-white/80">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-14">
+      <div class="grid md:grid-cols-4 gap-10">
+        <div class="md:col-span-2">
+          <img src="logos/logo.png" alt="Acqua Capital" class="h-12 md:h-14 w-auto bg-white/95 rounded-lg p-1.5" />
+          <p class="mt-4 max-w-sm text-white/60 leading-relaxed">Factoring 100% digital para Pymes en Chile. Liquidez inmediata, transparente y sin papeleos.</p>
         </div>
-        <div class="tile-overlay">
-          <h3>Nuestra historia</h3>
-          <p>Generaciones trabajando la tierra nos permiten combinar tradición y procesos modernos para fruta consistente y trazable.</p>
+        <div>
+          <h4 class="font-semibold text-white mb-4">Navegación</h4>
+          <ul class="space-y-2.5 text-white/60">
+            <li><a href="index.html" class="hover:text-white transition">Inicio</a></li>
+            <li><a href="about.html" class="hover:text-white transition">Nosotros</a></li>
+            <li><a href="contact.html" class="hover:text-white transition">Contacto</a></li>
+            <li><a href="https://app.acqua.capital/login" class="hover:text-white transition">Iniciar sesión</a></li>
+          </ul>
         </div>
-      </article>
-
-      <article class="about-tile reveal">
-        <div class="tile-media">
-          <img src="img/superbin.jpg" alt="Equipo de trabajo" />
-        </div>
-        <div class="tile-overlay">
-          <h3>Nuestro equipo</h3>
-          <p>Un equipo técnico y operativo orientado a la calidad, la logística B2B y la mejora continua.</p>
-        </div>
-      </article>
-
-      <article class="about-tile reveal">
-        <div class="tile-media">
-          <img src="img/fruits.jpg" alt="Instalaciones y maquinaria" />
-        </div>
-        <div class="tile-overlay">
-          <h3>Instalaciones</h3>
-          <p>Áreas de recepción, cámaras de frío y packing con controles y soporte para generación fotovoltaica.</p>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- Sustentabilidad -->
-  <section id="sustentabilidad" class="container">
-    <div class="section-head reveal">
-      <h2>Sustentabilidad</h2>
-      <p>Compromiso real con el entorno: operación eficiente con uso de tecnología y prácticas sustentables.</p>
-    </div>
-    <!-- Bloque: Paneles solares -->
-    <div class="sustentabilidad reveal" style="margin-bottom:1.25rem;">
-      <div class="panel">
-        <h3 style="margin:0 0 .4rem; color:var(--green-dark)">Paneles solares</h3>
-        <p style="color:var(--muted); margin:0">Nuestro packing integra <strong>paneles solares</strong> que aportan energía limpia, disminuyendo la huella de carbono y asegurando una operación estable durante la temporada alta.</p>
-        <ul style="margin:.8rem 0 0; padding-left:1.1rem; line-height:1.7; color:#4b5b52">
-          <li>Eficiencia energética y reducción de emisiones.</li>
-          <li>Continuidad operacional con respaldo híbrido.</li>
-          <li>Monitoreo y trazabilidad de indicadores ambientales.</li>
-        </ul>
-      </div>
-      <div aria-hidden="true">
-        <img src="img/panel.jpg" alt="Paneles solares en el packing" style="border-radius: var(--radius-xl); border:1px solid #e6eae3; box-shadow: var(--shadow);" />
-      </div>
-    </div>
-
-    <!-- Bloque: Polinización -->
-    <div class="sustentabilidad reveal">
-      <div class="panel">
-        <h3 style="margin:0 0 .4rem; color:var(--green-dark)">Polinización</h3>
-        <p style="color:var(--muted); margin:0">La polinización por abejas es clave para nuestra producción: mejora el cuajado, la calidad y la consistencia de los frutos, apoyando además la biodiversidad en nuestros predios.</p>
-        <ul style="margin:.8rem 0 0; padding-left:1.1rem; line-height:1.7; color:#4b5b52">
-          <li>Mejora del cuajado y calibre de frutos.</li>
-          <li>Aumento de la diversidad genética y salud del huerto.</li>
-          <li>Prácticas compatibles con conservación y uso responsable de agroquímicos.</li>
-        </ul>
-      </div>
-      <div aria-hidden="true">
-        <img src="img/abejas.jpg" alt="Abejas polinizando flores de cítricos" style="border-radius: var(--radius-xl); border:1px solid #e6eae3; box-shadow: var(--shadow);" />
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container footer-wrap">
-      <div>
-        <div class="mini-brand">
-          <span>Citrumax</span>
-        </div>
-        <p style="max-width:52ch; color:#cfe1c6">Packing de cítricos para mercado mayorista. Calidad, trazabilidad y operación sustentable.</p>
-        <div class="ally-strip">
-          <div class="ally ally-delineated"><img src="img/delvalle.jpg" alt="del valle" /></div>
+        <div>
+          <h4 class="font-semibold text-white mb-4">Contacto</h4>
+          <ul class="space-y-2.5 text-white/60">
+            <li><a href="mailto:contacto@acqua.capital" class="hover:text-white transition">contacto@acqua.capital</a></li>
+            <li><a href="tel:+56221234567" class="hover:text-white transition">+56 2 2123 4567</a></li>
+            <li>Las Condes, Santiago de Chile</li>
+          </ul>
         </div>
       </div>
-      <div>
-        <nav class="footer-nav" aria-label="Navegación inferior">
-          <a href="index.html">Inicio</a>
-          <a href="index.html#productos">Productos</a>
-          <a href="#sustentabilidad">Sustentabilidad</a>
-          <a href="about.html">Sobre Nosotros</a>
-          <a href="salud.html">Salud</a>
-          <a href="contact.html">Contacto</a>
+      <div class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/50">
+        <p>© <span id="year"></span> Acqua Capital. Todos los derechos reservados.</p>
+        <div class="flex gap-6"><a href="#" class="hover:text-white transition">Términos</a><a href="#" class="hover:text-white transition">Privacidad</a></div>
       </div>
-    </div>
-    <div class="container legal">
-      <span>© <span id="year"></span> Citrumax. Todos los derechos reservados. Diseñado por <a href="https://www.linkedin.com/company/maxivisionspa/" target="_blank" rel="noopener noreferrer">MaxiVision</a></span>
     </div>
   </footer>
+
+  <!-- ===================== WHATSAPP FLOTANTE ===================== -->
+  <a href="https://wa.me/56912345678?text=Hola%20Acqua%20Capital,%20quiero%20información%20sobre%20factoring%20para%20mi%20Pyme"
+     target="_blank" rel="noopener"
+     class="wa-pulse fixed bottom-6 right-6 z-50 w-14 h-14 md:w-16 md:h-16 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-105 transition-transform"
+     aria-label="Chatear por WhatsApp">
+    <svg class="w-7 h-7 md:w-8 md:h-8 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.518 5.263l-.999 3.648 3.97-1.041zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+  </a>
 
   <script src="script.js"></script>
 </body>
