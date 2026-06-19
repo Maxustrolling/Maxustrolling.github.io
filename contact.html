@@ -16,8 +16,8 @@
       theme: { extend: {
         fontFamily: { sans: ['Inter','ui-sans-serif','system-ui','sans-serif'] },
         colors: {
-          aqua: '#2ba6e0', blue: { DEFAULT: '#1f6fb2' },
-          navy: { DEFAULT: '#123a5e', deep: '#0d2c47' },
+          aqua: '#0080c8', blue: { DEFAULT: '#0061a4' },
+          navy: { DEFAULT: '#004280', deep: '#00325f' },
           inkc: '#1e1e2d', mist: '#f6f8fb', cloud: '#e9eef4',
         },
         borderRadius: { '4xl': '2rem' },
@@ -97,7 +97,7 @@
               <span class="w-12 h-12 rounded-2xl bg-white border border-cloud flex items-center justify-center text-navy shadow-sm">
                 <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               </span>
-              <div><p class="text-sm text-inkc/55">Oficina</p><p class="font-semibold text-navy">Av. Apoquindo, Las Condes, Santiago</p></div>
+              <div><p class="text-sm text-inkc/55">Oficina</p><p class="font-semibold text-navy">724, Av. Apoquindo 7331, Las Condes, Santiago</p></div>
             </div>
           </div>
         </div>
@@ -112,7 +112,7 @@
                   class="w-full rounded-2xl border border-cloud bg-mist/50 px-4 py-3 text-inkc placeholder-inkc/40 focus:bg-white focus:border-blue focus:ring-2 focus:ring-blue/20 outline-none transition" />
               </div>
               <div>
-                <label for="empresa" class="block text-sm font-semibold text-inkc/70 mb-1.5">Empresa</label>
+                <label for="empresa" class="block text-sm font-semibold text-inkc/70 mb-1.5">Rut</label>
                 <input id="empresa" name="empresa" type="text" placeholder="Razón social"
                   class="w-full rounded-2xl border border-cloud bg-mist/50 px-4 py-3 text-inkc placeholder-inkc/40 focus:bg-white focus:border-blue focus:ring-2 focus:ring-blue/20 outline-none transition" />
               </div>
@@ -134,10 +134,7 @@
               <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos brevemente sobre tu necesidad de liquidez"
                 class="w-full rounded-2xl border border-cloud bg-mist/50 px-4 py-3 text-inkc placeholder-inkc/40 focus:bg-white focus:border-blue focus:ring-2 focus:ring-blue/20 outline-none transition resize-none"></textarea>
             </div>
-            <label class="flex items-start gap-3 text-sm text-inkc/60">
-              <input type="checkbox" required class="mt-1 w-4 h-4 rounded border-cloud text-navy focus:ring-blue/30" />
-              <span>Acepto ser contactado y la <a href="#" class="text-navy font-semibold hover:underline">política de privacidad</a>.</span>
-            </label>
+
             <button type="submit" class="liquid-glass w-full text-base">
               Quiero que me contacten
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
@@ -146,6 +143,23 @@
               ¡Gracias! Recibimos tus datos y te contactaremos muy pronto.
             </p>
           </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== MAPA UBICACIÓN ===================== -->
+    <section class="pb-20 md:pb-28">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <!-- TODO: reemplazar la dirección 'q=' por la dirección/coordenadas reales de la oficina -->
+        <div class="reveal rounded-4xl overflow-hidden border border-cloud shadow-lg">
+          <iframe
+            title="Ubicación de Acqua Capital"
+            src="https://www.google.com/maps?q=Av.%20Apoquindo%207331%2C%20Las%20Condes%2C%20Santiago%2C%20Chile&output=embed"
+            class="w-full h-[320px] md:h-[420px]"
+            style="border:0;"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
         </div>
       </div>
     </section>
@@ -173,7 +187,7 @@
           <ul class="space-y-2.5 text-white/60">
             <li><a href="mailto:contacto@acqua.capital" class="hover:text-white transition">contacto@acqua.capital</a></li>
             <li><a href="tel:+56221234567" class="hover:text-white transition">+56 2 2123 4567</a></li>
-            <li>Las Condes, Santiago de Chile</li>
+            <li>Av. Apoquindo 7331, Las Condes, Santiago</li>
           </ul>
         </div>
       </div>

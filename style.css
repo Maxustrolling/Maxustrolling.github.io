@@ -4,12 +4,12 @@
    ============================================================ */
 
 :root {
-  --aqua:        #2ba6e0; /* azul aqua brillante (cúspide del logo) */
-  --aqua-soft:   #5bbde9;
-  --blue:        #1f6fb2; /* azul medio */
-  --navy:        #123a5e; /* navy base del logo */
-  --navy-deep:   #0d2c47;
-  --ink:         #1e1e2d; /* texto principal (casi negro) */
+  --aqua:        #0080c8; /* azul brillante exacto (cúspide del logo) */
+  --aqua-soft:   #4ca7da;
+  --blue:        #0061a4; /* azul medio (mezcla exacta de los tonos del logo) */
+  --navy:        #004280; /* azul profundo exacto (base del logo) */
+  --navy-deep:   #00325f; /* misma tonalidad, más oscura para degradados */
+  --ink:         #1e1e2d; /* texto de párrafo (casi negro, como el wordmark) */
   --mist:        #f6f8fb; /* gris muy sutil de fondos secundarios */
   --cloud:       #e9eef4; /* gris de bordes/tarjetas */
 }

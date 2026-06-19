@@ -17,8 +17,8 @@
       theme: { extend: {
         fontFamily: { sans: ['Inter','ui-sans-serif','system-ui','sans-serif'] },
         colors: {
-          aqua: '#2ba6e0', blue: { DEFAULT: '#1f6fb2' },
-          navy: { DEFAULT: '#123a5e', deep: '#0d2c47' },
+          aqua: '#0080c8', blue: { DEFAULT: '#0061a4' },
+          navy: { DEFAULT: '#004280', deep: '#00325f' },
           inkc: '#1e1e2d', mist: '#f6f8fb', cloud: '#e9eef4',
         },
         borderRadius: { '4xl': '2rem' },
@@ -67,11 +67,11 @@
     <section class="relative overflow-hidden pt-28 md:pt-36 pb-20 md:pb-28">
       <!-- Fondo: imagen + overlay claro (reemplaza la URL por una imagen propia) -->
       <div class="absolute inset-0 -z-20 bg-cover bg-center"
-           style="background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920&q=80');"></div>
+           style="background-image:url('Img/bg.webp');"></div>
       <div class="absolute inset-0 -z-10"
-           style="background:radial-gradient(1100px 600px at 78% 0%, rgba(43,166,224,0.18), transparent 60%), linear-gradient(90deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.62) 45%, rgba(255,255,255,0.28) 100%);"></div>
+           style="background:radial-gradient(1100px 600px at 78% 0%, rgba(43,166,224,0.10), transparent 60%), linear-gradient(90deg, rgba(255,255,255,0.30) 0%, rgba(255,255,255,0.12) 45%, rgba(255,255,255,0) 100%);"></div>
       <div class="max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-14 lg:gap-10 items-center">
-        <div class="reveal">
+        <div class="reveal lg:bg-white/45 lg:backdrop-blur-md rounded-3xl lg:p-8 lg:-m-8">
           <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-mist border border-cloud text-navy text-[13px] font-semibold mb-6">
             <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
             Factoring 100% digital para Pymes en Chile
@@ -98,26 +98,7 @@
           </div>
         </div>
 
-        <!-- Tarjeta visual estilo portal -->
-        <div class="reveal relative">
-          <div class="floaty relative bg-white rounded-4xl border border-cloud shadow-[0_30px_70px_-30px_rgba(18,58,94,0.35)] p-7 sm:p-9 max-w-md mx-auto">
-            <div class="flex items-center justify-between mb-6">
-              <p class="text-sm font-semibold text-inkc/50">Resumen de operación</p>
-              <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-600">Aprobada</span>
-            </div>
-            <p class="text-sm text-inkc/50">Monto a anticipar</p>
-            <p class="text-4xl font-extrabold text-navy mt-1">$12.480.000</p>
-            <div class="mt-6 space-y-3 text-sm">
-              <div class="flex justify-between py-2 border-b border-cloud"><span class="text-inkc/60">Facturas cedidas</span><span class="font-semibold text-inkc">3 documentos</span></div>
-              <div class="flex justify-between py-2 border-b border-cloud"><span class="text-inkc/60">Tasa mensual</span><span class="font-semibold text-inkc">1,45%</span></div>
-              <div class="flex justify-between py-2 border-b border-cloud"><span class="text-inkc/60">Comisión</span><span class="font-semibold text-inkc">Sin costos ocultos</span></div>
-              <div class="flex justify-between py-2"><span class="text-inkc/60">Abono estimado</span><span class="font-semibold text-emerald-600">Hoy, antes de 18:00</span></div>
-            </div>
-            <a href="https://app.acqua.capital/login" class="liquid-glass w-full mt-7 text-base">Ceder facturas</a>
-          </div>
-          <div class="hidden sm:block absolute -top-6 -right-4 w-24 h-24 rounded-full bg-aqua/10 blur-xl"></div>
-          <div class="hidden sm:block absolute -bottom-8 -left-6 w-32 h-32 rounded-full bg-blue/10 blur-2xl"></div>
-        </div>
+        
       </div>
     </section>
 
@@ -150,6 +131,64 @@
         </div>
       </div>
     </section>
+
+    <!-- ===================== SIMULADOR TRANSPARENTE ===================== -->
+    <section id="simulador" class="py-20 md:py-28 bg-mist border-y border-cloud">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        <div class="max-w-2xl mx-auto text-center reveal">
+          <span class="text-sm font-bold uppercase tracking-wider text-blue">Transparencia total</span>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-navy">Simula tu factoring en segundos</h2>
+          <p class="mt-4 text-lg text-inkc/65">Sin registrarte y sin letra chica. Mueve los valores y mira al instante cuánto recibes y cuánto cuesta. Lo que ves acá, es lo que pagas.</p>
+        </div>
+
+        <div class="mt-12 grid lg:grid-cols-5 gap-6 lg:gap-8 reveal">
+          <!-- Controles -->
+          <div class="lg:col-span-3 bg-white rounded-4xl border border-cloud p-7 sm:p-9 space-y-8">
+            <div>
+              <div class="flex justify-between items-baseline mb-3">
+                <label for="simMonto" class="text-sm font-semibold text-inkc/70">Monto a anticipar</label>
+                <span id="simMontoOut" class="text-lg font-extrabold text-navy">$12.000.000</span>
+              </div>
+              <input id="simMonto" type="range" min="1000000" max="100000000" step="500000" value="12000000"
+                class="w-full accent-[#0061a4] cursor-pointer" />
+              <div class="flex justify-between text-xs text-inkc/45 mt-1"><span>$1M</span><span>$100M</span></div>
+            </div>
+            <div>
+              <div class="flex justify-between items-baseline mb-3">
+                <label for="simPlazo" class="text-sm font-semibold text-inkc/70">Plazo de pago de la factura</label>
+                <span id="simPlazoOut" class="text-lg font-extrabold text-navy">45 días</span>
+              </div>
+              <input id="simPlazo" type="range" min="15" max="120" step="5" value="45"
+                class="w-full accent-[#0061a4] cursor-pointer" />
+              <div class="flex justify-between text-xs text-inkc/45 mt-1"><span>15 días</span><span>120 días</span></div>
+            </div>
+            <div>
+              <div class="flex justify-between items-baseline mb-3">
+                <label for="simTasa" class="text-sm font-semibold text-inkc/70">Tasa mensual</label>
+                <span id="simTasaOut" class="text-lg font-extrabold text-navy">1,45%</span>
+              </div>
+              <input id="simTasa" type="range" min="1.0" max="2.5" step="0.05" value="1.45"
+                class="w-full accent-[#0061a4] cursor-pointer" />
+              <div class="flex justify-between text-xs text-inkc/45 mt-1"><span>1,0%</span><span>2,5%</span></div>
+            </div>
+          </div>
+
+          <!-- Resultado -->
+          <div class="lg:col-span-2 rounded-4xl bg-gradient-to-br from-blue via-navy to-navy-deep text-white p-7 sm:p-9 flex flex-col">
+            <p class="text-sm font-semibold text-white/60">Recibes hoy (estimado)</p>
+            <p id="simRecibe" class="text-4xl font-extrabold mt-1">$11.738.500</p>
+            <div class="mt-6 space-y-3 text-sm">
+              <div class="flex justify-between py-2 border-b border-white/15"><span class="text-white/60">Costo de financiamiento</span><span id="simInteres" class="font-semibold">$261.000</span></div>
+              <div class="flex justify-between py-2 border-b border-white/15"><span class="text-white/60">Comisión operacional</span><span id="simComision" class="font-semibold">$42.000</span></div>
+              <div class="flex justify-between py-2"><span class="text-white/60">Costo total</span><span id="simCosto" class="font-semibold text-aqua">$303.000</span></div>
+            </div>
+            <a href="https://app.acqua.capital/login" class="liquid-glass liquid-glass--dark w-full mt-7 text-base">Anticipar con estos valores</a>
+            <p class="text-xs text-white/40 mt-4 leading-relaxed">Valores referenciales. La tasa final depende de la evaluación de cada operación; te la mostramos siempre antes de aceptar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
     <!-- ===================== BENEFICIOS / PILARES ===================== -->
     <section class="py-20 md:py-28 bg-white">
@@ -193,109 +232,18 @@
         </div>
       </div>
     </section>
-
-    <!-- ===================== SIMULADOR TRANSPARENTE ===================== -->
-    <section id="simulador" class="py-20 md:py-28 bg-mist border-y border-cloud">
-      <div class="max-w-6xl mx-auto px-5 sm:px-8">
-        <div class="max-w-2xl mx-auto text-center reveal">
-          <span class="text-sm font-bold uppercase tracking-wider text-blue">Transparencia total</span>
-          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-navy">Simula tu factoring en segundos</h2>
-          <p class="mt-4 text-lg text-inkc/65">Sin registrarte y sin letra chica. Mueve los valores y mira al instante cuánto recibes y cuánto cuesta. Lo que ves acá, es lo que pagas.</p>
-        </div>
-
-        <div class="mt-12 grid lg:grid-cols-5 gap-6 lg:gap-8 reveal">
-          <!-- Controles -->
-          <div class="lg:col-span-3 bg-white rounded-4xl border border-cloud p-7 sm:p-9 space-y-8">
-            <div>
-              <div class="flex justify-between items-baseline mb-3">
-                <label for="simMonto" class="text-sm font-semibold text-inkc/70">Monto a anticipar</label>
-                <span id="simMontoOut" class="text-lg font-extrabold text-navy">$12.000.000</span>
-              </div>
-              <input id="simMonto" type="range" min="1000000" max="100000000" step="500000" value="12000000"
-                class="w-full accent-[#1f6fb2] cursor-pointer" />
-              <div class="flex justify-between text-xs text-inkc/45 mt-1"><span>$1M</span><span>$100M</span></div>
-            </div>
-            <div>
-              <div class="flex justify-between items-baseline mb-3">
-                <label for="simPlazo" class="text-sm font-semibold text-inkc/70">Plazo de pago de la factura</label>
-                <span id="simPlazoOut" class="text-lg font-extrabold text-navy">45 días</span>
-              </div>
-              <input id="simPlazo" type="range" min="15" max="120" step="5" value="45"
-                class="w-full accent-[#1f6fb2] cursor-pointer" />
-              <div class="flex justify-between text-xs text-inkc/45 mt-1"><span>15 días</span><span>120 días</span></div>
-            </div>
-            <div>
-              <div class="flex justify-between items-baseline mb-3">
-                <label for="simTasa" class="text-sm font-semibold text-inkc/70">Tasa mensual</label>
-                <span id="simTasaOut" class="text-lg font-extrabold text-navy">1,45%</span>
-              </div>
-              <input id="simTasa" type="range" min="1.0" max="2.5" step="0.05" value="1.45"
-                class="w-full accent-[#1f6fb2] cursor-pointer" />
-              <div class="flex justify-between text-xs text-inkc/45 mt-1"><span>1,0%</span><span>2,5%</span></div>
-            </div>
-          </div>
-
-          <!-- Resultado -->
-          <div class="lg:col-span-2 rounded-4xl bg-gradient-to-br from-blue via-navy to-navy-deep text-white p-7 sm:p-9 flex flex-col">
-            <p class="text-sm font-semibold text-white/60">Recibes hoy (estimado)</p>
-            <p id="simRecibe" class="text-4xl font-extrabold mt-1">$11.738.500</p>
-            <div class="mt-6 space-y-3 text-sm">
-              <div class="flex justify-between py-2 border-b border-white/15"><span class="text-white/60">Costo de financiamiento</span><span id="simInteres" class="font-semibold">$261.000</span></div>
-              <div class="flex justify-between py-2 border-b border-white/15"><span class="text-white/60">Comisión operacional</span><span id="simComision" class="font-semibold">$42.000</span></div>
-              <div class="flex justify-between py-2"><span class="text-white/60">Costo total</span><span id="simCosto" class="font-semibold text-aqua">$303.000</span></div>
-            </div>
-            <a href="https://app.acqua.capital/login" class="liquid-glass liquid-glass--dark w-full mt-7 text-base">Anticipar con estos valores</a>
-            <p class="text-xs text-white/40 mt-4 leading-relaxed">Valores referenciales. La tasa final depende de la evaluación de cada operación; te la mostramos siempre antes de aceptar.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== CÓMO FUNCIONA — 3 PASOS ===================== -->
-    <section id="como-funciona" class="py-20 md:py-28 bg-white">
-      <div class="max-w-7xl mx-auto px-5 sm:px-8">
-        <div class="max-w-2xl mx-auto text-center reveal">
-          <span class="text-sm font-bold uppercase tracking-wider text-blue">Proceso 100% digital</span>
-          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-navy">Tu liquidez en 3 pasos simples</h2>
-          <p class="mt-4 text-lg text-inkc/65">Sin reuniones eternas, sin firmas en papel y sin letra chica. Todo desde tu computador o celular.</p>
-        </div>
-        <div class="mt-16 grid md:grid-cols-3 gap-6 lg:gap-8">
-          <div class="reveal group bg-mist rounded-4xl border border-cloud p-8 hover:shadow-[0_24px_50px_-24px_rgba(18,58,94,0.30)] transition-shadow">
-            <div class="flex items-center justify-between mb-6">
-              <div class="w-14 h-14 rounded-2xl bg-white border border-cloud flex items-center justify-center text-navy shadow-sm">
-                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
-              </div>
-              <span class="text-5xl font-extrabold text-cloud group-hover:text-aqua/30 transition-colors">01</span>
-            </div>
-            <h3 class="text-xl font-bold text-navy">Sube tus facturas</h3>
-            <p class="mt-3 text-inkc/65 leading-relaxed">Conecta tu cuenta y selecciona las facturas que quieres anticipar. Las leemos directo desde el SII, sin que tengas que escanear nada.</p>
-          </div>
-          <div class="reveal group bg-mist rounded-4xl border border-cloud p-8 hover:shadow-[0_24px_50px_-24px_rgba(18,58,94,0.30)] transition-shadow" style="transition-delay:.08s">
-            <div class="flex items-center justify-between mb-6">
-              <div class="w-14 h-14 rounded-2xl bg-white border border-cloud flex items-center justify-center text-navy shadow-sm">
-                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.5 9.5a2.5 2.5 0 0 1 4.6 1.2c0 1.7-2.6 2.5-2.6 2.5"/><line x1="12" y1="17" x2="12" y2="17"/></svg>
-              </div>
-              <span class="text-5xl font-extrabold text-cloud group-hover:text-aqua/30 transition-colors">02</span>
-            </div>
-            <h3 class="text-xl font-bold text-navy">Conoce tu oferta al instante</h3>
-            <p class="mt-3 text-inkc/65 leading-relaxed">Te mostramos la tasa, la comisión y el monto neto a recibir antes de aceptar. Cero sorpresas: lo que ves es exactamente lo que recibes.</p>
-          </div>
-          <div class="reveal group bg-mist rounded-4xl border border-cloud p-8 hover:shadow-[0_24px_50px_-24px_rgba(18,58,94,0.30)] transition-shadow" style="transition-delay:.16s">
-            <div class="flex items-center justify-between mb-6">
-              <div class="w-14 h-14 rounded-2xl bg-white border border-cloud flex items-center justify-center text-navy shadow-sm">
-                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
-              </div>
-              <span class="text-5xl font-extrabold text-cloud group-hover:text-aqua/30 transition-colors">03</span>
-            </div>
-            <h3 class="text-xl font-bold text-navy">Recibe el dinero hoy</h3>
-            <p class="mt-3 text-inkc/65 leading-relaxed">Aceptas con un clic y transferimos el anticipo a tu cuenta el mismo día hábil. Tu Pyme sigue operando sin frenar por la espera de un pago.</p>
-          </div>
-        </div>
-        <div class="mt-12 text-center reveal">
-          <a href="https://app.acqua.capital/login" class="liquid-glass text-base">
-            Empieza ahora, registrarse es gratis
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
+<!-- ===================== CITA / COMPROMISO ===================== -->
+    <section class="py-16 md:py-24 bg-white">
+      <div class="max-w-5xl mx-auto px-5 sm:px-8">
+        <div class="reveal rounded-4xl bg-gradient-to-br from-blue via-navy to-navy-deep text-white p-10 md:p-14 text-center relative overflow-hidden">
+          <div class="absolute -top-10 -right-10 w-48 h-48 rounded-full bg-aqua/20 blur-2xl"></div>
+          <div class="absolute -bottom-12 -left-12 w-56 h-56 rounded-full bg-aqua/10 blur-3xl"></div>
+          <p class="relative text-xl md:text-2xl font-medium leading-relaxed max-w-3xl mx-auto">
+            “Nuestro compromiso es simple: que cada Pyme acceda a su dinero rápido, con reglas claras
+            y sin letra chica. La transparencia no es un eslogan, es la forma en que trabajamos.”
+          </p>
+          <p class="relative mt-6 text-white/60 font-semibold">— Los socios fundadores de Acqua Capital</p>
+          <div class="relative mt-8"><a href="contact.html" class="liquid-glass liquid-glass--dark text-base">Conversemos</a></div>
         </div>
       </div>
     </section>
@@ -317,40 +265,7 @@
       </div>
     </section>
 
-    <!-- ===================== EMPRESA NUEVA, EQUIPO EXPERTO ===================== -->
-    <section class="py-20 md:py-28 bg-white">
-      <div class="max-w-7xl mx-auto px-5 sm:px-8">
-        <div class="max-w-2xl mx-auto text-center reveal">
-          <span class="text-sm font-bold uppercase tracking-wider text-blue">Por qué confiar en nosotros</span>
-          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-navy">Nuevos en el mercado, expertos en el rubro</h2>
-          <p class="mt-4 text-lg text-inkc/65">Recién partimos, y no lo escondemos. Lo que sí traemos es un equipo con años de experiencia en factoring y una forma de trabajar pensada para ganarnos tu confianza desde la primera operación.</p>
-        </div>
-        <div class="mt-14 grid md:grid-cols-3 gap-6 lg:gap-8">
-          <div class="reveal bg-mist rounded-4xl border border-cloud p-8">
-            <div class="w-12 h-12 rounded-xl bg-aqua/10 flex items-center justify-center text-navy mb-5">
-              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h3 class="text-lg font-bold text-navy">Equipo con trayectoria</h3>
-            <p class="mt-2 text-inkc/65 leading-relaxed">Tres socios chilenos con más de 20 años combinados financiando Pymes. Sabemos del rubro porque venimos de él. <a href="about.html" class="text-blue font-semibold hover:underline">Conoce al equipo</a>.</p>
-          </div>
-          <div class="reveal bg-mist rounded-4xl border border-cloud p-8">
-            <div class="w-12 h-12 rounded-xl bg-aqua/10 flex items-center justify-center text-navy mb-5">
-              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
-            </div>
-            <h3 class="text-lg font-bold text-navy">Transparencia por diseño</h3>
-            <p class="mt-2 text-inkc/65 leading-relaxed">Te mostramos la tasa, la comisión y el monto neto antes de que aceptes. Pruébalo tú mismo en nuestro <a href="#simulador" class="text-blue font-semibold hover:underline">simulador</a>, sin registrarte.</p>
-          </div>
-          <div class="reveal bg-mist rounded-4xl border border-cloud p-8">
-            <div class="w-12 h-12 rounded-xl bg-aqua/10 flex items-center justify-center text-navy mb-5">
-              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 12 14 16 9"/></svg>
-            </div>
-            <h3 class="text-lg font-bold text-navy">Operación regulada</h3>
-            <p class="mt-2 text-inkc/65 leading-relaxed">Trabajamos con factura electrónica del SII, registro de cesiones y tus datos cifrados. Reglas claras y respaldo normativo en Chile.</p>
-          </div>
-        </div>
-        <p class="mt-10 text-center text-sm text-inkc/45">¿Eres de nuestras primeras Pymes? Tu experiencia será nuestro mejor testimonio. <a href="contact.html" class="text-blue font-semibold hover:underline">Conversemos</a>.</p>
-      </div>
-    </section>
+    
 
     <!-- ===================== FAQ ===================== -->
     <section class="py-20 md:py-24 bg-mist border-y border-cloud">
@@ -424,7 +339,7 @@
           <ul class="space-y-2.5 text-white/60">
             <li><a href="mailto:contacto@acqua.capital" class="hover:text-white transition">contacto@acqua.capital</a></li>
             <li><a href="tel:+56221234567" class="hover:text-white transition">+56 2 2123 4567</a></li>
-            <li>Las Condes, Santiago de Chile</li>
+            <li>Av. Apoquindo 7331, Las Condes, Santiago</li>
           </ul>
         </div>
       </div>
