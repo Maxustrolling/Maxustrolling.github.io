@@ -112,9 +112,18 @@
                   class="w-full rounded-2xl border border-cloud bg-mist/50 px-4 py-3 text-inkc placeholder-inkc/40 focus:bg-white focus:border-blue focus:ring-2 focus:ring-blue/20 outline-none transition" />
               </div>
               <div>
-                <label for="empresa" class="block text-sm font-semibold text-inkc/70 mb-1.5">Rut</label>
-                <input id="empresa" name="empresa" type="text" placeholder="Razón social"
-                  class="w-full rounded-2xl border border-cloud bg-mist/50 px-4 py-3 text-inkc placeholder-inkc/40 focus:bg-white focus:border-blue focus:ring-2 focus:ring-blue/20 outline-none transition" />
+                <label for="rut" class="block text-sm font-semibold text-inkc/70 mb-1.5">RUT</label>
+                <div class="relative">
+                  <input id="rut" name="rut" type="text" required inputmode="numeric" maxlength="12" autocomplete="off" placeholder="12.345.678-9"
+                    class="w-full rounded-2xl border border-cloud bg-mist/50 px-4 py-3 pr-11 text-inkc placeholder-inkc/40 focus:bg-white focus:border-blue focus:ring-2 focus:ring-blue/20 outline-none transition" />
+                  <!-- Indicador de validez -->
+                  <span id="rutOk" class="hidden absolute inset-y-0 right-3.5 items-center text-emerald-500" aria-hidden="true">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  <span id="rutBad" class="hidden absolute inset-y-0 right-3.5 items-center text-red-500" aria-hidden="true">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  </span>
+                </div>
               </div>
             </div>
             <div class="grid sm:grid-cols-2 gap-5">
@@ -125,13 +134,13 @@
               </div>
               <div>
                 <label for="telefono" class="block text-sm font-semibold text-inkc/70 mb-1.5">Teléfono</label>
-                <input id="telefono" name="telefono" type="tel" placeholder="+56 9 ..."
+                <input id="telefono" name="telefono" type="tel" required placeholder="+56 9 ..."
                   class="w-full rounded-2xl border border-cloud bg-mist/50 px-4 py-3 text-inkc placeholder-inkc/40 focus:bg-white focus:border-blue focus:ring-2 focus:ring-blue/20 outline-none transition" />
               </div>
             </div>
             <div>
               <label for="mensaje" class="block text-sm font-semibold text-inkc/70 mb-1.5">¿En qué te ayudamos?</label>
-              <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos brevemente sobre tu necesidad de liquidez"
+              <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Cuéntanos brevemente sobre tu necesidad de liquidez"
                 class="w-full rounded-2xl border border-cloud bg-mist/50 px-4 py-3 text-inkc placeholder-inkc/40 focus:bg-white focus:border-blue focus:ring-2 focus:ring-blue/20 outline-none transition resize-none"></textarea>
             </div>
 

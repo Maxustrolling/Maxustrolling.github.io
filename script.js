@@ -82,6 +82,58 @@
       calcularSimulador();
     }
 
+    // Autoformato de RUT chileno -> 12.345.678-9
+    var rutInput = document.getElementById('rut');
+    if (rutInput) {
+      var formatRut = function (value) {
+        var clean = value.replace(/[^0-9kK]/g, '').toUpperCase();
+        if (clean.length <= 1) return clean;
+        var body = clean.slice(0, -1);
+        var dv = clean.slice(-1);
+        body = body.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        return body + '-' + dv;
+      };
+      // Validación real del dígito verificador (módulo 11)
+      var validarRut = function (value) {
+        var clean = value.replace(/[^0-9kK]/g, '').toUpperCase();
+        if (clean.length < 2) return false;
+        var body = clean.slice(0, -1);
+        var dv = clean.slice(-1);
+        if (!/^\d+$/.test(body)) return false;
+        var sum = 0, mul = 2;
+        for (var i = body.length - 1; i >= 0; i--) {
+          sum += parseInt(body.charAt(i), 10) * mul;
+          mul = mul === 7 ? 2 : mul + 1;
+        }
+        var resto = 11 - (sum % 11);
+        var dvCalc = resto === 11 ? '0' : (resto === 10 ? 'K' : String(resto));
+        return dvCalc === dv;
+      };
+      var rutOk = document.getElementById('rutOk');
+      var rutBad = document.getElementById('rutBad');
+      var mostrarIcono = function (estado) {
+        if (rutOk) rutOk.classList.toggle('hidden', estado !== 'ok');
+        if (rutOk) rutOk.classList.toggle('flex', estado === 'ok');
+        if (rutBad) rutBad.classList.toggle('hidden', estado !== 'bad');
+        if (rutBad) rutBad.classList.toggle('flex', estado === 'bad');
+      };
+      var revisarRut = function () {
+        if (rutInput.value === '') {
+          rutInput.setCustomValidity('');
+          mostrarIcono('none');
+          return;
+        }
+        var ok = validarRut(rutInput.value);
+        rutInput.setCustomValidity(ok ? '' : 'Ingresa un RUT válido (ej: 12.345.678-9)');
+        mostrarIcono(ok ? 'ok' : 'bad');
+      };
+      rutInput.addEventListener('input', function () {
+        rutInput.value = formatRut(rutInput.value);
+        revisarRut();
+      });
+      rutInput.addEventListener('blur', revisarRut);
+    }
+
     // Formulario de contacto (demo — sin backend)
     var form = document.getElementById('leadForm');
     if (form) {
