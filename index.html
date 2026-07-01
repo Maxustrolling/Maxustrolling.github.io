@@ -81,8 +81,7 @@
           </h1>
           <p class="mt-6 text-lg text-inkc/70 max-w-xl leading-relaxed">
             Convierte tus facturas en capital de trabajo el mismo día. Un proceso
-            <strong class="text-navy font-semibold">100% digital</strong>, sin papeleos ni burocracia,
-            con tasas claras desde el primer minuto. Así de simple, así de transparente.
+            <strong class="text-navy font-semibold">100% digital</strong>, sin papeleos ni burocracia. Así de simple, así de transparente.
           </p>
           <div class="mt-9 flex flex-col sm:flex-row gap-4">
             <a href="#simulador" class="liquid-glass text-base">
@@ -94,7 +93,7 @@
           <div class="mt-12 grid grid-cols-3 gap-6 max-w-lg">
             <div><p class="text-3xl font-extrabold text-navy">24h</p><p class="text-sm text-inkc/60 mt-1">Liquidez en tu cuenta</p></div>
             <div><p class="text-3xl font-extrabold text-navy">0</p><p class="text-sm text-inkc/60 mt-1">Papeleos físicos</p></div>
-            <div><p class="text-3xl font-extrabold text-navy">100%</p><p class="text-sm text-inkc/60 mt-1">Tasas transparentes</p></div>
+            <div><p class="text-3xl font-extrabold text-navy">100%</p><p class="text-sm text-inkc/60 mt-1">Transparentes</p></div>
           </div>
         </div>
 
@@ -107,7 +106,7 @@
       <div class="max-w-7xl mx-auto px-5 sm:px-8 py-12">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center reveal">
           <div>
-            <p class="text-3xl sm:text-4xl font-extrabold text-navy">+20<span class="text-2xl align-top">años</span></p>
+            <p class="text-3xl sm:text-4xl font-extrabold text-navy">+40<span class="text-2xl align-top">años</span></p>
             <p class="text-sm text-inkc/60 mt-1">De experiencia combinada del equipo</p>
           </div>
           <div>
@@ -120,7 +119,7 @@
           </div>
           <div>
             <p class="text-3xl sm:text-4xl font-extrabold text-navy">0</p>
-            <p class="text-sm text-inkc/60 mt-1">Comisiones ocultas o letra chica</p>
+            <p class="text-sm text-inkc/60 mt-1">Letra chica</p>
           </div>
         </div>
         <div class="mt-10 pt-8 border-t border-cloud flex flex-col md:flex-row items-center justify-center gap-x-8 gap-y-3 text-navy/70 font-semibold text-sm">
@@ -138,7 +137,7 @@
         <div class="max-w-2xl mx-auto text-center reveal">
           <span class="text-sm font-bold uppercase tracking-wider text-blue">Transparencia total</span>
           <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-navy">Simula tu factoring en segundos</h2>
-          <p class="mt-4 text-lg text-inkc/65">Sin registrarte y sin letra chica. Mueve los valores y mira al instante cuánto recibes y cuánto cuesta. Lo que ves acá, es lo que pagas.</p>
+          <p class="mt-4 text-lg text-inkc/65">Sin registrarte y sin letra chica. Ajusta los valores y mira al instante cuánto recibes y cuánto cuesta.</p>
         </div>
 
         <div class="mt-12 grid lg:grid-cols-5 gap-6 lg:gap-8 reveal">
@@ -158,31 +157,31 @@
                 <label for="simPlazo" class="text-sm font-semibold text-inkc/70">Plazo de pago de la factura</label>
                 <span id="simPlazoOut" class="text-lg font-extrabold text-navy">45 días</span>
               </div>
-              <input id="simPlazo" type="range" min="15" max="120" step="5" value="45"
+              <input id="simPlazo" type="range" min="30" max="120" step="5" value="45"
                 class="w-full accent-[#0061a4] cursor-pointer" />
-              <div class="flex justify-between text-xs text-inkc/45 mt-1"><span>15 días</span><span>120 días</span></div>
+              <div class="flex justify-between text-xs text-inkc/45 mt-1"><span>30 días</span><span>120 días</span></div>
             </div>
             <div>
               <div class="flex justify-between items-baseline mb-3">
                 <label for="simTasa" class="text-sm font-semibold text-inkc/70">Tasa mensual</label>
-                <span id="simTasaOut" class="text-lg font-extrabold text-navy">1,45%</span>
+                <span id="simTasaOut" class="text-lg font-extrabold text-navy">1,75%</span>
               </div>
-              <input id="simTasa" type="range" min="1.0" max="2.5" step="0.05" value="1.45"
+              <input id="simTasa" type="range" min="1.5" max="2.5" step="0.05" value="1.75"
                 class="w-full accent-[#0061a4] cursor-pointer" />
-              <div class="flex justify-between text-xs text-inkc/45 mt-1"><span>1,0%</span><span>2,5%</span></div>
+              <div class="flex justify-between text-xs text-inkc/45 mt-1"><span>1,5%</span><span>2,5%</span></div>
             </div>
           </div>
 
           <!-- Resultado -->
           <div class="lg:col-span-2 rounded-4xl bg-gradient-to-br from-blue via-navy to-navy-deep text-white p-7 sm:p-9 flex flex-col">
             <p class="text-sm font-semibold text-white/60">Recibes hoy (estimado)</p>
-            <p id="simRecibe" class="text-4xl font-extrabold mt-1">$11.738.500</p>
+            <p id="simRecibe" class="text-4xl font-extrabold mt-1">$11.643.000</p>
             <div class="mt-6 space-y-3 text-sm">
               <div class="flex justify-between py-2 border-b border-white/15"><span class="text-white/60">Costo de financiamiento</span><span id="simInteres" class="font-semibold">$261.000</span></div>
               <div class="flex justify-between py-2 border-b border-white/15"><span class="text-white/60">Comisión operacional</span><span id="simComision" class="font-semibold">$42.000</span></div>
               <div class="flex justify-between py-2"><span class="text-white/60">Costo total</span><span id="simCosto" class="font-semibold text-aqua">$303.000</span></div>
             </div>
-            <a href="https://app.acqua.capital/login" class="liquid-glass liquid-glass--dark w-full mt-7 text-base">Anticipar con estos valores</a>
+            <a href="https://app.acqua.capital/login" class="liquid-glass liquid-glass--dark w-full mt-7 text-base">Contactar</a>
             <p class="text-xs text-white/40 mt-4 leading-relaxed">Valores referenciales. La tasa final depende de la evaluación de cada operación; te la mostramos siempre antes de aceptar.</p>
           </div>
         </div>
@@ -207,7 +206,7 @@
             <span class="text-5xl font-extrabold text-cloud">01</span>
           </div>
           <h3 class="text-xl font-bold text-navy">Rapidez real</h3>
-          <p class="mt-3 text-inkc/65 leading-relaxed">Evaluamos y abonamos en horas, no en semanas. Tu capital de trabajo deja de esperar a 30, 60 o 90 días.</p>
+          <p class="mt-3 text-inkc/65 leading-relaxed">Evaluamos y abonamos en horas, no en días. Tu capital de trabajo deja de esperar 30, 60 o 90 días.</p>
         </div>
         <div class="reveal bg-white rounded-4xl border border-cloud p-8 hover:shadow-[0_24px_50px_-24px_rgba(18,58,94,0.30)] transition-shadow">
           <div class="flex items-center justify-between mb-6">
@@ -217,7 +216,7 @@
             <span class="text-5xl font-extrabold text-cloud">02</span>
           </div>
           <h3 class="text-xl font-bold text-navy">Transparencia total</h3>
-          <p class="mt-3 text-inkc/65 leading-relaxed">Una sola tasa, sin comisiones escondidas ni costos de última hora. Confianza construida sobre números claros.</p>
+          <p class="mt-3 text-inkc/65 leading-relaxed">Confianza construida sobre números claros.</p>
         </div>
         <div class="reveal bg-white rounded-4xl border border-cloud p-8 hover:shadow-[0_24px_50px_-24px_rgba(18,58,94,0.30)] transition-shadow">
           <div class="flex items-center justify-between mb-6">
@@ -257,9 +256,8 @@
           comprometes tu capacidad crediticia con el banco. Conviertes ventas a 30, 60 o 90 días en liquidez disponible hoy,
           para pagar sueldos, proveedores o crecer sin frenar.
         </p>
-        <div class="mt-8 grid sm:grid-cols-3 gap-4 text-left">
+        <div class="mt-8 grid sm:grid-cols-2 gap-4 text-left max-w-2xl mx-auto">
           <div class="bg-white rounded-3xl border border-cloud p-6"><p class="font-bold text-navy">Sin deuda nueva</p><p class="mt-2 text-sm text-inkc/60">No aparece como crédito ni afecta tu evaluación bancaria.</p></div>
-          <div class="bg-white rounded-3xl border border-cloud p-6"><p class="font-bold text-navy">Sin garantías reales</p><p class="mt-2 text-sm text-inkc/60">La factura cedida es el respaldo de la operación.</p></div>
           <div class="bg-white rounded-3xl border border-cloud p-6"><p class="font-bold text-navy">Pagas solo por lo que usas</p><p class="mt-2 text-sm text-inkc/60">Anticipa cuando lo necesites, sin montos mínimos forzados.</p></div>
         </div>
       </div>
@@ -306,7 +304,7 @@
           <div class="absolute inset-0" style="background:linear-gradient(135deg, rgba(31,111,178,0.92) 0%, rgba(18,58,94,0.92) 55%, rgba(13,44,71,0.95) 100%);"></div>
           <div class="absolute -top-10 -right-10 w-48 h-48 rounded-full bg-aqua/20 blur-2xl"></div>
           <div class="absolute -bottom-12 -left-12 w-56 h-56 rounded-full bg-aqua/10 blur-3xl"></div>
-          <h2 class="relative text-3xl sm:text-4xl font-extrabold tracking-tight">Dale aire a tu Pyme hoy mismo</h2>
+          <h2 class="relative text-3xl sm:text-4xl font-extrabold tracking-tight">Tu Pyme necesita Acqua. Dale liquidez hoy mismo</h2>
           <p class="relative mt-4 text-white/70 text-lg max-w-2xl mx-auto">Regístrate gratis y obtén tu primera simulación en minutos. Sin compromiso.</p>
           <div class="relative mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <a href="https://app.acqua.capital/login" class="liquid-glass liquid-glass--dark text-base">Crear mi cuenta</a>
@@ -344,8 +342,7 @@
         </div>
       </div>
       <div class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/50">
-        <p>© <span id="year"></span> Acqua Capital. Todos los derechos reservados.</p>
-        <div class="flex gap-6"><a href="#" class="hover:text-white transition">Términos</a><a href="#" class="hover:text-white transition">Privacidad</a></div>
+        <p>© <span id="year"></span> Acqua Capital. Todos los derechos reservados. Diseñado por <a href="https://www.linkedin.com/company/maxivisionspa/" target="_blank" style="color: white;" >Maxivision.</a></p>
       </div>
     </div>
   </footer>
